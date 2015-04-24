@@ -21,6 +21,7 @@ warnings=$(mktemp)
 source $bp_dir/lib/common.sh
 source $bp_dir/lib/build.sh
 source $bp_dir/lib/warnings.sh
+source $bp_dir/lib/elasticio.sh
 
 # Avoid GIT_DIR leak from previous build steps
 unset GIT_DIR
@@ -56,6 +57,7 @@ install_npm
 head "Building dependencies"
 cd $build_dir
 build_dependencies
+install_sailor
 
 ####### Create a Procfile if possible
 
