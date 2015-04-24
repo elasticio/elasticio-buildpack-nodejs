@@ -1,4 +1,3 @@
 install_sailor() {
-  touch sailor.txt
-  npm install pnedelko/sailor-nodejs
+  npm install git+https://github.com/elasticio/sailor-nodejs.git#master
 }
