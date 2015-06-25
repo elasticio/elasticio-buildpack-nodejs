@@ -60,10 +60,10 @@ build_dependencies
 
 head "Running tests"
 if [[ $(read_json "$build_dir/package.json" ".scripts.test") != "" ]]; then
-    npm test
-  else
-    warning "No tests specified. Please do it ASAP!"
-  fi
+  npm test
+else
+  warning "No tests specified. Please do it ASAP!"
+fi
 
 
 head "Installing Sailor"
