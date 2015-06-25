@@ -57,7 +57,11 @@ install_npm
 head "Building dependencies"
 cd $build_dir
 build_dependencies
+
+head "Running tests"
 npm test
+
+head "Installing Sailor"
 install_sailor
 
 ####### Create a Procfile if possible
