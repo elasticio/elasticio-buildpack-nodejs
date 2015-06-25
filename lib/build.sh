@@ -82,7 +82,7 @@ read_current_state() {
 
   info "environment variables..."
   export_env_dir $env_dir
-  export NPM_CONFIG_PRODUCTION=${NPM_CONFIG_PRODUCTION:-true}
+  #export NPM_CONFIG_PRODUCTION=${NPM_CONFIG_PRODUCTION:-true}
   export NODE_MODULES_CACHE=${NODE_MODULES_CACHE:-true}
 }
 
