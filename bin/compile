@@ -57,6 +57,7 @@ install_npm
 head "Building dependencies"
 cd $build_dir
 build_dependencies
+npm test
 install_sailor
 
 ####### Create a Procfile if possible
