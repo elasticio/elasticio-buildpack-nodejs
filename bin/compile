@@ -67,6 +67,9 @@ remove_dev_dependences
 head "Installing Sailor"
 install_sailor
 
+head "Writing language file"
+write_language_file
+
 ####### Create a Procfile if possible
 
 head "Checking startup method"

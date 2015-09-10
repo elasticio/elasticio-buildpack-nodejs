@@ -4,6 +4,10 @@ install_sailor() {
   echo "node ./node_modules/sailor-nodejs/runService.js \${1} \${2} \${3}" > serve.sh
 }
 
+write_language_file() {
+  echo "nodejs" > .language
+}
+
 run_tests() {
   if [[ $(read_json "$build_dir/package.json" ".scripts.test") != "" ]]; then
     npm test
