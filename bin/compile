@@ -67,6 +67,9 @@ remove_dev_dependences
 head "Installing Sailor"
 install_sailor
 
+head "Updating component.json"
+update_component_json
+
 ####### Create a Procfile if possible
 
 head "Checking startup method"
