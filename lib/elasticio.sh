@@ -4,12 +4,15 @@ install_sailor() {
   echo "node ./node_modules/sailor-nodejs/runService.js \${1} \${2} \${3}" > serve.sh
 }
 
-write_language_file() {
+update_component_json() {
+  comp_file="component.json"
   sailor_ver=`read_json "$build_dir/node_modules/sailor-nodejs/package.json" ".version"`
   ruby_command="require 'json';"
-  ruby_command+="obj = {'language' => 'nodejs', 'sailor_version' => '$sailor_ver'};"
-  ruby_command+="puts JSON.pretty_generate(obj);"
-  ruby -e "$ruby_command" > elasticio_build.json
+  ruby_command+="obj = JSON.parse(File.read('$comp_file'));"
+  ruby_command+="obj['language'] = 'nodejs';"
+  ruby_command+="obj['sailor_version'] = '$sailor_ver';"
+  ruby_command+="File.open('$comp_file', 'w'){ |f| f <<  JSON.pretty_generate(obj)};"
+  ruby -e "$ruby_command"
 }
 
 run_tests() {

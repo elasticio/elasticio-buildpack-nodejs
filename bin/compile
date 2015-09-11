@@ -67,8 +67,8 @@ remove_dev_dependences
 head "Installing Sailor"
 install_sailor
 
-head "Writing language file"
-write_language_file
+head "Updating component.json"
+update_component_json
 
 ####### Create a Procfile if possible
 
