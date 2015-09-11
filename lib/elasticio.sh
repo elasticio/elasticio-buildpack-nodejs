@@ -5,7 +5,11 @@ install_sailor() {
 }
 
 write_language_file() {
-  echo "nodejs" > .language
+  sailor_ver=`read_json "$build_dir/node_modules/sailor-nodejs/package.json" ".version"`
+  ruby_command="require 'json';"
+  ruby_command+="obj = {'language' => 'nodejs', 'sailor_version' => '$sailor_ver'};"
+  ruby_command+="puts JSON.pretty_generate(obj);"
+  ruby -e "$ruby_command" > elasticio_build.json
 }
 
 run_tests() {
