@@ -1,7 +1,10 @@
 install_sailor() {
-  npm install git+https://github.com/elasticio/sailor-nodejs.git#master
-  echo "node ./node_modules/sailor-nodejs/run.js" > sail.sh
-  echo "node ./node_modules/sailor-nodejs/runService.js \${1} \${2} \${3}" > serve.sh
+  if [[ $(read_json "$build_dir/package.json" ".dependencies.elasticio-sailor-nodejs") == "" ]]; then
+    npm install elasticio-sailor-nodejs
+    warning "You should add elasticio-sailor-nodejs to your dependencies!"
+  fi
+  echo "node ./node_modules/elasticio-sailor-nodejs/run.js" > sail.sh
+  echo "node ./node_modules/elasticio-sailor-nodejs/runService.js \${1} \${2} \${3}" > serve.sh
 }
 
 update_component_json() {
