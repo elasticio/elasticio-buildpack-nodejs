@@ -1,7 +1,9 @@
 install_sailor() {
   if [[ $(read_json "$build_dir/package.json" ".dependencies[\"elasticio-sailor-nodejs\"]") == "" ]]; then
     npm install elasticio-sailor-nodejs@1.0.0
-    warning "You should add elasticio-sailor-nodejs to your dependencies!"
+    warning "Your connector does not define depdendency to elasticio-sailor-nodejs. \
+             We installed this dependency for you but will disable this feature in future. \
+             Please add this dependency to your package.json."
   fi
   echo "node ./node_modules/elasticio-sailor-nodejs/run.js" > sail.sh
   echo "node ./node_modules/elasticio-sailor-nodejs/runService.js \${1} \${2} \${3}" > serve.sh
