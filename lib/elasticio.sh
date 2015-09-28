@@ -3,7 +3,7 @@ install_sailor() {
     npm install elasticio-sailor-nodejs@1.0.0
 
     warning_msg="Your connector does not define depdendency to elasticio-sailor-nodejs. "
-    warning_msg+="We installed this dependency for you but will disable this feature in future."
+    warning_msg+="We installed this dependency for you but will disable this feature in future. "
     warning_msg+="Please add this dependency to your package.json."
 
     warning warning_msg
