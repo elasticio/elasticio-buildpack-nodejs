@@ -2,7 +2,7 @@ install_sailor() {
   if [[ $(read_json "$build_dir/package.json" ".dependencies[\"elasticio-sailor-nodejs\"]") == "" ]]; then
     npm install elasticio-sailor-nodejs@1.0.0
 
-    local warning_msg="Your connector does not define depdendency to elasticio-sailor-nodejs. "
+    local warning_msg="Your connector does not define dependency to elasticio-sailor-nodejs. "
     warning_msg+="We installed this dependency for you but will disable this feature in future. "
     warning_msg+="Please add this dependency to your package.json."
 
