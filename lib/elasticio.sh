@@ -14,7 +14,7 @@ install_sailor() {
 
 update_component_json() {
   comp_file="component.json"
-  sailor_ver=`read_json "$build_dir/node_modules/sailor-nodejs/package.json" ".version"`
+  sailor_ver=`read_json "$build_dir/node_modules/elasticio-sailor-nodejs/package.json" ".version"`
   ruby_command="require 'json';"
   ruby_command+="obj = JSON.parse(File.read('$comp_file'));"
   ruby_command+="obj['language'] = 'nodejs';"
