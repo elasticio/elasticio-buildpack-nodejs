@@ -166,6 +166,7 @@ install_npm() {
 function build_dependencies() {
   info "Disabling Certificate Authority by NPM"
   npm config set ca ""
+  npm set progress=false
   
   if [ "$modules_source" == "" ]; then
     info "Skipping dependencies (no source for node_modules)"
