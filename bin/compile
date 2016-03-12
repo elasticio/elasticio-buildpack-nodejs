@@ -52,6 +52,12 @@ else
 fi
 install_npm
 
+# use npm proxy
+npm set registry http://sinopia.marathon.mesos:4873
+
+# ("null" means get CA list from OS)
+$ npm set ca null
+
 ####### Build the project's dependencies
 
 head "Building dependencies"
