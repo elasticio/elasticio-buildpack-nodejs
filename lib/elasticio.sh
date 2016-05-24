@@ -23,6 +23,14 @@ update_component_json() {
   ruby -e "$ruby_command"
 }
 
+run_coverage() {
+  if [[ $RUN_COVERAGE && $(read_json "$build_dir/package.json" ".scripts.coverage") != "" ]]; then
+    npm run-script coverage
+  else
+    warning "No coverage script specified. Skipping coverage"
+  fi
+}
+
 run_tests() {
   if [[ $(read_json "$build_dir/package.json" ".scripts.test") != "" ]]; then
     npm test
