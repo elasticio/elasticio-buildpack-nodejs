@@ -2,13 +2,12 @@ build_failed() {
   head "Build failed"
   echo ""
   cat $warnings | indent
-  info "We're sorry this build is failing! If you can't find the issue in application code,"
-  info "please submit a ticket so we can help: https://help.heroku.com/"
-  info "You can also try reverting to our legacy Node.js buildpack:"
-  info "heroku config:set BUILDPACK_URL=https://github.com/heroku/heroku-buildpack-nodejs#v63"
+  info "We're sorry this build is failing! If you can't find the issue in component code,"
+  info "please submit a ticket so we can help: https://support.elastic.io//"
+  info "You can also try upgrading Sailor to the most recent version. Check out "
+  info "https://www.npmjs.com/package/elasticio-sailor-nodejs"
   info ""
-  info "Love,"
-  info "Heroku"
+  info "Your elastic.io team"
 }
 
 build_succeeded() {
