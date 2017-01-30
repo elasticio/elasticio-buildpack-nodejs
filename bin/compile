@@ -61,9 +61,6 @@ build_dependencies
 head "Running tests"
 run_tests
 
-head "Running coverage"
-run_coverage
-
 head "Removing devDependences"
 remove_dev_dependences
 
