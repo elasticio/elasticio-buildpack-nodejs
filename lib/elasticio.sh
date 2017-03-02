@@ -1,13 +1,4 @@
-install_sailor() {
-  if [[ $(read_json "$build_dir/package.json" ".dependencies[\"elasticio-sailor-nodejs\"]") == "" ]]; then
-    npm install elasticio-sailor-nodejs
-
-    local warning_msg="Your connector does not define dependency to elasticio-sailor-nodejs. "
-    warning_msg+="We installed this dependency for you but will disable this feature in future. "
-    warning_msg+="Please add this dependency to your package.json."
-
-    warning "$warning_msg"
-  fi
+prepare_sailor() {
   echo "node ./node_modules/elasticio-sailor-nodejs/run.js" > sail.sh
   echo "node ./node_modules/elasticio-sailor-nodejs/runService.js \${1} \${2} \${3}" > serve.sh
 }
@@ -33,4 +24,12 @@ run_tests() {
 
 remove_dev_dependences() {
   npm prune --production
+}
+
+validate_compatibility() {
+    sailor_ver=`read_json "$build_dir/node_modules/elasticio-sailor-nodejs/package.json" ".version"`
+    pushd "$bp_dir/compatibility" >/dev/null
+    npm install
+    node $bp_dir/compatibility/validate.js $node_engine $sailor_ver
+    popd >/dev/null
 }

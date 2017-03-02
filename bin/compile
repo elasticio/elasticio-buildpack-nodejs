@@ -51,12 +51,14 @@ else
   install_iojs "$iojs_engine"
 fi
 install_npm
-
 ####### Build the project's dependencies
 
 head "Building dependencies"
 cd $build_dir
 build_dependencies
+
+head "Validating Sailor compatibility"
+validate_compatibility
 
 head "Running tests"
 run_tests
@@ -64,8 +66,8 @@ run_tests
 head "Removing devDependences"
 remove_dev_dependences
 
-head "Installing Sailor"
-install_sailor
+head "Preparing Sailor"
+prepare_sailor
 
 head "Updating component.json"
 update_component_json
