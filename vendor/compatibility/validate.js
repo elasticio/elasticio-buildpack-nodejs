@@ -3,8 +3,6 @@ var semver = require('semver');
 var nodeJsVersion = process.argv[2];
 var sailorVersion = process.argv[3];
 
-console.log('Starting validation...')
-
 if (!sailorVersion) {
     throw new Error(sailorVersionEndOfLifeMessage());
 }
@@ -27,8 +25,7 @@ if (semver.gte(sailorVersion, '2.0.0')) {
 function sailorVersionEndOfLifeMessage() {
     var versionSuffix = sailorVersion ? '@' + sailorVersion : '';
 
-    return 'You are using a version of elasticio-sailor-nodejs'
-        + versionSuffix
+    return 'You are using elasticio-sailor-nodejs' + versionSuffix
         + ' which is not supported anymore.'
         + ' Please upgrade your version. For more details see https://www.npmjs.com/package/elasticio-sailor-nodejs'
 }
