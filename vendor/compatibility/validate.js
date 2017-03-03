@@ -4,12 +4,12 @@ var nodeJsVersion = process.argv[2];
 var sailorVersion = process.argv[3];
 
 if (!sailorVersion) {
-    console.error(sailorVersionEndOfLifeMessage());
+    console.log(sailorVersionEndOfLifeMessage());
     throw new Error("");
 }
 
 if (semver.lt(sailorVersion, '1.3.0')) {
-    console.error(sailorVersionEndOfLifeMessage());
+    console.log(sailorVersionEndOfLifeMessage());
     throw new Error("");
 }
 
