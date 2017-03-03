@@ -31,7 +31,7 @@ validate_compatibility() {
     info "Validating Sailor version $sailor_ver compatibility with Node.js version $node_engine"
     pushd "$bp_dir/compatibility" >/dev/null
     npm install
+    popd >/dev/null
     info "Installed required dependencies"
     node $bp_dir/compatibility/validate.js $node_engine $sailor_ver 2>&1
-    popd >/dev/null
 }
