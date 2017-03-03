@@ -29,9 +29,9 @@ remove_dev_dependences() {
 validate_compatibility() {
     sailor_ver=`read_json "$build_dir/node_modules/elasticio-sailor-nodejs/package.json" ".version"`
     info "Validating Sailor version $sailor_ver compatibility with Node.js version $node_engine"
-    pushd "$bp_dir/compatibility" >/dev/null
+    pushd "$bp_dir/vendor/compatibility" >/dev/null
     npm install --unsafe-perm --quiet --userconfig $build_dir/.npmrc 2>&1 | indent
     popd >/dev/null
     info "Installed required dependencies"
-    node $bp_dir/compatibility/validate.js $node_engine $sailor_ver 2>&1
+    node $bp_dir/vendor/compatibility/validate.js $node_engine $sailor_ver 2>&1
 }
