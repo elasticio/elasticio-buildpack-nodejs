@@ -4,20 +4,26 @@ var nodeJsVersion = process.argv[2];
 var sailorVersion = process.argv[3];
 
 if (!sailorVersion) {
-    throw new Error(sailorVersionEndOfLifeMessage());
+    console.error(sailorVersionEndOfLifeMessage());
+    throw new Error("");
 }
 
 if (semver.lt(sailorVersion, '1.3.0')) {
-    throw new Error(sailorVersionEndOfLifeMessage());
+    console.error(sailorVersionEndOfLifeMessage());
+    throw new Error("");
 }
 
 if (semver.gte(sailorVersion, '2.0.0')) {
     if (semver.lt(nodeJsVersion, '6.0.0')) {
-        throw new Error('You are using elasticio-sailor-nodejs@'
+        var msg = 'You are using elasticio-sailor-nodejs@'
             + sailorVersion
             + ' which requires Node.js version >= 6.x but you defined engines.node='
             + nodeJsVersion
-            + ' in package.json');
+            + ' in package.json';
+
+        console.error(msg);
+
+        throw new Error("");
     }
 }
 
