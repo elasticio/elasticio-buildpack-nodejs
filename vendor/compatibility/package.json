@@ -1,5 +1,5 @@
 {
-  "name": "@elastic.io/version_validation",
+  "name": "@elastic.io/sailor-compatibility",
   "version": "1.0.0",
   "description": "",
   "main": "validate.js",
