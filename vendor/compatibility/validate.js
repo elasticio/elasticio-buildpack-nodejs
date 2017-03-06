@@ -23,5 +23,6 @@ if (semver.gte(sailorVersion, '2.0.0')) {
             + sailorVersion
             + ' which requires Node.js version >= 6.x but you defined engines.node='
             + nodeJsVersion
-            + ' in package.json');
+            + ' in package.json. Please use engines.node=6.10.0 or later 6.x release.');
     }
+}
