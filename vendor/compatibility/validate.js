@@ -12,7 +12,7 @@ var sailorVersion = program.sailor;
 
 var NPM_PACKAGE = 'https://www.npmjs.com/package/elasticio-sailor-nodejs';
 
-if (!sailorVersion) {
+if (!semver.valid(sailorVersion)) {
     throw new Error('Please define a dependency to elasticio-sailor-nodejs.'
         + 'For more details see ' + NPM_PACKAGE);
 }
@@ -24,7 +24,7 @@ if (semver.lt(sailorVersion, '1.3.0')) {
 }
 
 if (semver.gte(sailorVersion, '2.0.0')) {
-    if (nodeJsVersion && semver.lt(nodeJsVersion, '6.0.0')) {
+    if (semver.valid(nodeJsVersion) && semver.lt(nodeJsVersion, '6.0.0')) {
 
         throw new Error('You are using elasticio-sailor-nodejs@'
             + sailorVersion
