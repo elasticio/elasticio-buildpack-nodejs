@@ -33,5 +33,5 @@ validate_compatibility() {
     npm install --unsafe-perm --quiet --userconfig $build_dir/.npmrc 2>&1 | indent
     popd >/dev/null
     info "Installed required dependencies"
-    node $bp_dir/vendor/compatibility/validate.js $node_engine $sailor_ver 2>&1
+    node $bp_dir/vendor/compatibility/validate.js -n $node_engine -s $sailor_ver 2>&1
 }
