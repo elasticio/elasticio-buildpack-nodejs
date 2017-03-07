@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "semver": "^5.3.0"
+    "semver": "5.3.0",
+    "commander": "2.9.0"
   }
 }
